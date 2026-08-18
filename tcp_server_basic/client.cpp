@@ -31,9 +31,9 @@ int main() {
     // setsockopt(fd, SOL_SOCKET, SO_REUSEADDR, &val, sizeof(val));
 
     sockaddr_in addr{};
-    addr.sin_family = AF_INET;
-    addr.sin_port = htons(1234);
     addr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
+    addr.sin_port = htons(1234);
+    addr.sin_family = AF_INET;
 
     int rv = connect(fd, reinterpret_cast<const sockaddr *>(&addr), sizeof(addr));
 
